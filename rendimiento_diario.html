@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendimiento Diario - Ventas Anaco</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { width: 90%; max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        .summary { display: flex; justify-content: space-around; margin-bottom: 20px; }
+        .stat-box { background: #e0f7fa; padding: 15px; border-radius: 8px; text-align: center; width: 30%; }
+        .stat-box h3 { margin: 0; color: #006064; }
+        .stat-box p { font-size: 24px; margin: 5px 0 0 0; font-weight: bold; color: #00838f; }
+        .nav-link { display: block; text-align: center; margin-bottom: 20px; font-weight: bold; color: #00838f; text-decoration: none; }
+        .nav-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Rendimiento de Publicaciones (Time Series - Por Post/Día)</h1>
+        <a href="rendimiento_semanal.html" class="nav-link">👉 Ver Gráfico Semanal</a>
+        
+        <div class="summary">
+            <div class="stat-box">
+                <h3>Total Posts Analizados</h3>
+                <p>90</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Interacciones</h3>
+                <p>2858</p>
+            </div>
+        </div>
+
+        <canvas id="dailyChart" height="100"></canvas>
+    </div>
+
+    <script>
+        const ctxDaily = document.getElementById('dailyChart').getContext('2d');
+        new Chart(ctxDaily, {
+            type: 'bar',
+            data: {
+                labels: ['23/09/2025', '03/10/2025', '04/10/2025', '07/10/2025', '08/10/2025', '09/10/2025', '10/10/2025', '11/10/2025', '12/10/2025', '13/10/2025', '16/10/2025', '23/10/2025', '23/10/2025', '29/10/2025', '29/10/2025', '30/10/2025', '30/10/2025', '30/10/2025', '30/10/2025', '01/11/2025', '04/11/2025', '04/11/2025', '04/11/2025', '04/11/2025', '05/11/2025', '05/11/2025', '10/11/2025', '11/11/2025', '11/11/2025', '11/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '27/11/2025', '02/12/2025', '02/12/2025', '02/12/2025', '05/12/2025', '10/12/2025', '10/12/2025', '10/12/2025', '11/12/2025', '11/12/2025', '23/12/2025', '23/12/2025', '23/12/2025', '23/12/2025', '25/12/2025', '25/12/2025', '06/01/2026', '06/01/2026', '15/01/2026', '20/01/2026', '21/01/2026', '22/01/2026', '22/01/2026', '23/01/2026', '26/01/2026', '29/01/2026', '31/01/2026', '01/02/2026', '02/02/2026', '02/02/2026', '03/02/2026', '03/02/2026', '04/02/2026', '04/02/2026', '07/02/2026', '10/02/2026', '11/02/2026', '11/02/2026', '14/02/2026', '20/02/2026', '20/02/2026', '21/02/2026', '21/02/2026', '23/02/2026', '24/02/2026', '24/02/2026'],
+                datasets: [
+                    {
+                        type: 'line',
+                        label: 'Interacciones Totales (Tendencia)',
+                        data: [94, 269, 12, 23, 24, 30, 12, 29, 31, 35, 46, 22, 30, 10, 17, 17, 11, 18, 14, 30, 13, 8, 53, 19, 17, 48, 14, 21, 25, 6, 7, 10, 7, 21, 5, 33, 9, 19, 20, 14, 12, 18, 15, 22, 13, 16, 10, 28, 35, 27, 26, 41, 34, 39, 15, 21, 21, 16, 0, 16, 58, 27, 0, 33, 28, 19, 43, 30, 13, 28, 22, 302, 22, 13, 178, 23, 41, 14, 16, 154, 23, 19, 17, 78, 24, 28, 12, 0, 0, 25],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: false
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Likes',
+                        data: [86, 269, 12, 22, 24, 28, 12, 26, 24, 31, 40, 11, 20, 10, 17, 10, 10, 9, 10, 23, 13, 8, 42, 13, 14, 37, 10, 15, 25, 6, 7, 10, 7, 13, 5, 24, 9, 14, 18, 11, 12, 13, 15, 10, 13, 16, 10, 28, 27, 26, 26, 31, 29, 36, 15, 18, 20, 14, 0, 16, 46, 24, 0, 22, 24, 15, 38, 22, 13, 22, 18, 298, 22, 13, 173, 23, 33, 14, 16, 149, 23, 15, 17, 60, 22, 20, 12, 0, 0, 23],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Comentarios',
+                        data: [8, 0, 0, 1, 0, 2, 0, 3, 7, 4, 6, 11, 10, 0, 0, 7, 1, 9, 4, 7, 0, 0, 11, 6, 3, 11, 4, 6, 0, 0, 0, 0, 0, 8, 0, 9, 0, 5, 2, 3, 0, 5, 0, 12, 0, 0, 0, 0, 8, 1, 0, 10, 5, 3, 0, 3, 1, 2, 0, 0, 12, 3, 0, 11, 4, 4, 5, 8, 0, 6, 4, 4, 0, 0, 5, 0, 8, 0, 0, 5, 0, 4, 0, 18, 2, 8, 0, 0, 0, 2],
+                        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            footer: function(tooltipItems) {
+                                const index = tooltipItems[0].dataIndex;
+                                const shortcodes = ['DO852ozjbyK', 'DPWlSCqjTEp', 'DPZHsTMDV0m', 'DPhBFszkWEp', 'DPi-N4ujQNK', 'DPm37VBDdtt', 'DPo9cM3gRtp', 'DPq2SQHjUVg', 'DPtp8zcDe7y', 'DPwmG11EbWy', 'DP34zZYDZPb', 'DQJwpN9DWSc', 'DP9h9m9ETRQ', 'DQZ4NSNAQYT', 'DQaB5rygTiW', 'DQcHXcbkcTn', 'DQcP1dlkQ6l', 'DQcjNXCAThr', 'DQckshDAdCX', 'DQhlfIUAVIk', 'DQpNkPqEQuN', 'DQpliPHgWE2', 'DQpl1DfARij', 'DQpmilsAQzP', 'DQrYQoNjbPB', 'DQrYrz0DSiI', 'DQ4RNKhDk2Y', 'DQ7jCsJAbfH', 'DQ7jbpngaGn', 'DQ7kE4KAQer', 'DRj_3lkjcg3', 'DRkBH8GjdIy', 'DRkE3FXjb4r', 'DRkFM0jjWfQ', 'DRkFoE4DVz7', 'DRkGRM7jV1W', 'DRkHlRVDdQl', 'DRkH8Fbjc5A', 'DRkImttDRXK', 'DRkJauBjUtJ', 'DRkKCrIjUge', 'DRkKV9VDSev', 'DRkKznLDfua', 'DRkQNCMEX6s', 'DRkQrNrEQ2i', 'DRxXbmTAcMS', 'DRxyvU8gS9n', 'DRxy80yASTI', 'DR4fC8CjWT6', 'DSGQiSAAfRV', 'DSGWkE3gbux', 'DSGaoRSgUtK', 'DSINbIFjRFa', 'DSIdDq1kX_U', 'DSnBYI9jQhh', 'DSnFsq8DUnE', 'DSnPZeKETNW', 'DSnRvIAEU80', 'DSqzuewDT_p', 'DSqz6-7jejP', 'DTLJ2jsEeNY', 'DTLL5-tEQ6N', 'DTikXQFkfHL', 'DTvNuSGjRvu', 'DTx2lCqkeLH', 'DT0GuMPjW0M', 'DT0co-nkb15', 'DT3IJcfERwm', 'DT-YQu7jvlB', 'DUGZK97Ef_d', 'DULN-KNEeTR', 'DUOdCSGkduN', 'DURCcpeAXnG', 'DURDjI8gRgb', 'DURl2lDDepR', 'DUTj84XEYTM', 'DUVw-UijZzK', 'DUWM4WVgX0G', 'DUdUQ8yEQce', 'DUld4WWEeA6', 'DUoKUzdkV44', 'DUoKqM4Ecpk', 'DUv7kQNEQpw', 'DU_ofyxgbLj', 'DU_0m7JgUql', 'DVBj8Y4DcaW', 'DVB9u8Mkc55', 'DVGxJqRDbL4', 'DVJu6tBgWk_', 'DVJwt7_AbEE'];
+                                return 'Post ID: ' + shortcodes[index];
+                            }
+                        }
+                    },
+                    title: { display: true, text: 'Evolución de Interacciones (Más antiguo -> Más reciente)' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

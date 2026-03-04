@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendimiento Semanal - Ventas Anaco</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { width: 90%; max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        .summary { display: flex; justify-content: space-around; margin-bottom: 20px; }
+        .stat-box { background: #e0f7fa; padding: 15px; border-radius: 8px; text-align: center; width: 30%; }
+        .stat-box h3 { margin: 0; color: #006064; }
+        .stat-box p { font-size: 24px; margin: 5px 0 0 0; font-weight: bold; color: #00838f; }
+        .nav-link { display: block; text-align: center; margin-bottom: 20px; font-weight: bold; color: #00838f; text-decoration: none; }
+        .nav-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Rendimiento de Publicaciones (Por Semana)</h1>
+        <a href="rendimiento_diario.html" class="nav-link">👉 Ver Gráfico Diario</a>
+        
+        <div class="summary">
+            <div class="stat-box">
+                <h3>Total Posts</h3>
+                <p>90</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Likes</h3>
+                <p>2547</p>
+            </div>
+        </div>
+
+        <canvas id="weeklyChart" height="100"></canvas>
+    </div>
+
+    <script>
+        const ctxWeekly = document.getElementById('weeklyChart').getContext('2d');
+        new Chart(ctxWeekly, {
+            type: 'bar',
+            data: {
+                labels: ['Semana 39 (2025)', 'Semana 40 (2025)', 'Semana 41 (2025)', 'Semana 42 (2025)', 'Semana 43 (2025)', 'Semana 44 (2025)', 'Semana 45 (2025)', 'Semana 46 (2025)', 'Semana 48 (2025)', 'Semana 49 (2025)', 'Semana 50 (2025)', 'Semana 52 (2025)', 'Semana 2 (2026)', 'Semana 3 (2026)', 'Semana 4 (2026)', 'Semana 5 (2026)', 'Semana 6 (2026)', 'Semana 7 (2026)', 'Semana 8 (2026)', 'Semana 9 (2026)'],
+                datasets: [
+                    {
+                        type: 'line',
+                        label: 'Total Likes',
+                        data: [86, 281, 136, 71, 31, 89, 127, 56, 181, 81, 148, 83, 70, 0, 121, 351, 294, 204, 114, 23],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 2,
+                        tension: 0.3, 
+                        fill: true,
+                        yAxisID: 'y'
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Cantidad de Posts',
+                        data: [1, 2, 6, 2, 2, 7, 6, 4, 15, 4, 5, 6, 2, 1, 5, 4, 7, 4, 4, 3],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                interaction: { mode: 'index', intersect: false },
+                plugins: { title: { display: true, text: 'Cantidad de Publicaciones vs Likes Totales por Semana' } },
+                scales: {
+                    y: { type: 'linear', display: true, position: 'left', title: { display: true, text: 'Total Likes' } },
+                    y1: {
+                        type: 'linear', display: true, position: 'right', beginAtZero: true,
+                        grid: { drawOnChartArea: false },
+                        title: { display: true, text: 'Cantidad de Posts' },
+                        ticks: { stepSize: 1 }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

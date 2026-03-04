@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendimiento de Publicaciones - Ventas Anaco</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { width: 90%; max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        .summary { display: flex; justify-content: space-around; margin-bottom: 20px; }
+        .stat-box { background: #e0f7fa; padding: 15px; border-radius: 8px; text-align: center; width: 30%; }
+        .stat-box h3 { margin: 0; color: #006064; }
+        .stat-box p { font-size: 24px; margin: 5px 0 0 0; font-weight: bold; color: #00838f; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Rendimiento de Publicaciones (Time Series)</h1>
+        
+        <div class="summary">
+            <div class="stat-box">
+                <h3>Total Posts Analizados</h3>
+                <p>30</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Interacciones</h3>
+                <p>1290</p>
+            </div>
+        </div>
+
+        <canvas id="performanceChart" height="100"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'bar', // Tipo de gráfico (barras)
+            data: {
+                labels: ['06/01/2026', '06/01/2026', '15/01/2026', '20/01/2026', '21/01/2026', '22/01/2026', '22/01/2026', '23/01/2026', '26/01/2026', '29/01/2026', '31/01/2026', '01/02/2026', '02/02/2026', '02/02/2026', '03/02/2026', '03/02/2026', '04/02/2026', '04/02/2026', '07/02/2026', '10/02/2026', '11/02/2026', '11/02/2026', '14/02/2026', '20/02/2026', '20/02/2026', '21/02/2026', '21/02/2026', '23/02/2026', '24/02/2026', '24/02/2026'], // Fechas
+                datasets: [
+                    {
+                        type: 'line',
+                        label: 'Interacciones Totales (Tendencia)',
+                        data: [58, 27, 0, 33, 28, 19, 43, 30, 13, 28, 22, 302, 22, 13, 178, 23, 41, 14, 16, 154, 23, 19, 17, 78, 24, 28, 12, 0, 0, 25],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 2,
+                        tension: 0.3, // Curvas suaves
+                        fill: false
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Likes',
+                        data: [46, 24, 0, 22, 24, 15, 38, 22, 13, 22, 18, 298, 22, 13, 173, 23, 33, 14, 16, 149, 23, 15, 17, 60, 22, 20, 12, 0, 0, 23],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Comentarios',
+                        data: [12, 3, 0, 11, 4, 4, 5, 8, 0, 6, 4, 4, 0, 0, 5, 0, 8, 0, 0, 5, 0, 4, 0, 18, 2, 8, 0, 0, 0, 2],
+                        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            // Agregar el shortcode al tooltip para saber qué post es
+                            footer: function(tooltipItems) {
+                                const index = tooltipItems[0].dataIndex;
+                                const shortcodes = ['DTLJ2jsEeNY', 'DTLL5-tEQ6N', 'DTikXQFkfHL', 'DTvNuSGjRvu', 'DTx2lCqkeLH', 'DT0GuMPjW0M', 'DT0co-nkb15', 'DT3IJcfERwm', 'DT-YQu7jvlB', 'DUGZK97Ef_d', 'DULN-KNEeTR', 'DUOdCSGkduN', 'DURCcpeAXnG', 'DURDjI8gRgb', 'DURl2lDDepR', 'DUTj84XEYTM', 'DUVw-UijZzK', 'DUWM4WVgX0G', 'DUdUQ8yEQce', 'DUld4WWEeA6', 'DUoKUzdkV44', 'DUoKqM4Ecpk', 'DUv7kQNEQpw', 'DU_ofyxgbLj', 'DU_0m7JgUql', 'DVBj8Y4DcaW', 'DVB9u8Mkc55', 'DVGxJqRDbL4', 'DVJu6tBgWk_', 'DVJwt7_AbEE'];
+                                return 'Post ID: ' + shortcodes[index];
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Evolución de Interacciones por Fecha (Más antiguo -> Más reciente)'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        stacked: false
+                    },
+                    x: {
+                        stacked: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
