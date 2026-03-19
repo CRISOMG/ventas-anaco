@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintesis Estratégica: Proyecto Cuota Cero - Ventas Anaco</title>
+    
+    <!-- OpenGraph Metadata -->
+    <meta property="og:title" content="Documento Matriz Cuota Cero - Ventas Anaco">
+    <meta property="og:description" content="Sintesis consolidada de estrategia, operativa y metodologías del proyecto de modernización digital.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            600: '#475569',
+                            500: '#64748b',
+                            400: '#94a3b8',
+                            200: '#e2e8f0',
+                            100: '#f1f5f9',
+                            50: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .icon-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 1rem;
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="antialiased flex flex-col md:flex-row min-h-screen">
+
+    <!-- Sidebar / Navigation -->
+    <aside class="w-full md:w-80 bg-white border-r border-slate-200 md:h-screen sticky top-0 flex-shrink-0 z-50">
+        <div class="p-6 border-b border-slate-200">
+            <h1 class="text-xl font-bold text-brand-900 flex items-center gap-2">
+                <i class="ph-fill ph-shield-check"></i> Proyecto Cuota Cero
+            </h1>
+            <p class="text-xs text-slate-500 mt-1 uppercase tracking-wider font-semibold">Documento Matriz Corporativo</p>
+        </div>
+        <nav class="p-4 space-y-1 overflow-y-auto h-[calc(100vh-100px)] hidden md:block">
+            <p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Secciones del Matriz</p>
+            
+            <a href="#vision" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+                <i class="ph ph-eye text-lg"></i> 1. Visión Ejecutiva
+            </a>
+            <a href="#objetivos" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+                <i class="ph ph-target text-lg"></i> 2. Objetivos y Gobernanza
+            </a>
+            <a href="#tecnologia" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+                <i class="ph ph-cpu text-lg"></i> 3. Transformación Digital
+            </a>
+            <a href="#operativa" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+                <i class="ph ph-users-three text-lg"></i> 4. Gestión y Liderazgo
+            </a>
+            <a href="#metodologias" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+                <i class="ph ph-intersect text-lg"></i> 5. Marcos Metodológicos
+            </a>
+            <a href="#roadmap" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+                <i class="ph ph-map-trifold text-lg"></i> 6. Hoja de Ruta (Roadmap)
+            </a>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden p-4 bg-slate-50 border-b border-slate-200 flex overflow-x-auto gap-2">
+             <a href="#vision" class="whitespace-nowrap px-3 py-1 bg-white rounded-full border border-slate-200 text-sm font-medium text-slate-700">Visión</a>
+             <a href="#objetivos" class="whitespace-nowrap px-3 py-1 bg-white rounded-full border border-slate-200 text-sm font-medium text-slate-700">Gobernanza</a>
+             <a href="#tecnologia" class="whitespace-nowrap px-3 py-1 bg-white rounded-full border border-slate-200 text-sm font-medium text-slate-700">Digital</a>
+             <a href="#operativa" class="whitespace-nowrap px-3 py-1 bg-white rounded-full border border-slate-200 text-sm font-medium text-slate-700">Gestión</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 w-full max-w-5xl mx-auto p-6 md:p-12 space-y-20">
+
+        <!-- Hero Section -->
+        <header class="mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wide mb-4">
+                <span class="w-2 h-2 rounded-full bg-brand-500"></span> Confidencial e Interno
+            </div>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
+                Estrategia Consolidada y Guía Operativa
+            </h2>
+            <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+                Este documento matriz es la fuente única de verdad para la ejecución del proyecto <b>"Cuota Cero"</b>. Integra visión de negocio, arquitectura técnica, marcos de liderazgo y metodologías ágiles para asegurar el crecimiento exponencial de Ventas Anaco.
+            </p>
+        </header>
+
+        <!-- Sección 1: Visión Ejecutiva -->
+        <section id="vision" class="scroll-mt-12">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-2">
+                <div class="icon-box bg-brand-100 text-brand-600">
+                    <i class="ph-fill ph-eye"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-800">1. Visión Ejecutiva y Arquitectura Comercial</h3>
+            </div>
+            <div class="glass-card rounded-2xl p-8 shadow-sm">
+                <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+                    El proyecto <b>"Cuota Cero"</b> no es solo una campaña de ventas; es una arquitectura de escalabilidad masiva. Se fundamenta en implementar un sistema de crédito minorista apoyado en una <b>línea de suministro directa desde China</b>, lo que permite un control total sobre el costo de adquisición (CAC) y una flexibilidad en los márgenes inalcanzable para la competencia local.
+                </p>
+                
+                <div class="space-y-6 mb-10">
+                    <div class="p-6 bg-slate-50 border rounded-xl">
+                        <h4 class="font-bold text-brand-900 mb-3 flex items-center gap-2">
+                            <i class="ph ph-factory"></i> Cadena de Suministro Directa
+                        </h4>
+                        <p class="text-sm text-slate-600">Garantizar un costo de inventario sumamente bajo mitiga el riesgo de impago en el sistema de créditos. La eficiencia nace en el puerto de salida, no solo en el punto de venta.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 border border-slate-100 p-6 rounded-xl">
+                        <h4 class="font-bold text-brand-900 mb-2">Fase Marginal (El Gancho)</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">Márgenes pequeños sobre el costo para ser hipercompetitivos. El beneficio inicial no es la utilidad neta, sino el <b>volumen de adopción masivo</b> que genera el atractivo de "llevar sin pagar hoy".</p>
+                    </div>
+                    <div class="bg-brand-900 text-white p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition-transform">
+                        <h4 class="font-bold text-brand-100 mb-2">Fase Exponencial (Consolidación)</h4>
+                        <p class="text-sm text-brand-50 leading-relaxed">Crecimiento basado en el volumen de micro-cuotas. El esfuerzo de venta disminuye mientras el sistema de recaudación automática genera flujo de caja exponencial y predecible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: Objetivos y Gobernanza -->
+        <section id="objetivos" class="scroll-mt-12">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-2">
+                <div class="icon-box bg-slate-800 text-white">
+                    <i class="ph-fill ph-compass"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-800">2. Objetivos y Gobernanza Estratégica</h3>
+            </div>
+            <div class="space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-6 border-l-8 border-blue-500 bg-white shadow-sm rounded-r-xl">
+                        <h4 class="font-bold text-slate-800 mb-1">Movimiento de Inventario</h4>
+                        <p class="text-sm text-slate-600">Liquidación acelerada de stock congelado o inactivo, liberando espacio en almacén y reduciendo costos de mantenimiento logístico.</p>
+                    </div>
+                    <div class="p-6 border-l-8 border-green-500 bg-white shadow-sm rounded-r-xl">
+                        <h4 class="font-bold text-slate-800 mb-1">Aceleración del Flujo de Caja</h4>
+                        <p class="text-sm text-slate-600">Enfoque en productos de "ticket bajo", transformando inventario estancado en capital líquido mediante micro-pagos continuos de alta rotación.</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white rounded-2xl p-8 relative overflow-hidden shadow-xl">
+                    <div class="absolute -right-16 -top-16 w-48 h-48 bg-brand-500 rounded-full opacity-10 pointer-events-none"></div>
+                    <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="ph ph-scales"></i> Pilar de Gobernanza: Éxito vs. Control
+                    </h4>
+                    <p class="text-sm text-slate-400 mb-6 italic">Toda decisión técnica y operativa se mide bajo esta matriz para evitar el desvío del alcance (Scope Creep).</p>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Foco en Éxito (Agilidad e Impacto)</span>
+                            <p class="mt-2 text-slate-300 text-sm">Prioridad en las fases iniciales y pilotos (MVP). Se acepta "deuda técnica" controlada y procesos manuales para validar que el mercado adopta el producto. <i>"¿Qué estamos priorizando: validar rápido?"</i></p>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-green-400">Foco en Control (Robustez y Cumplimiento)</span>
+                            <p class="mt-2 text-slate-300 text-sm">Prioridad en la escalabilidad y automatización total. Garantiza seguridad, auditoría y que el sistema soporte altos volúmenes sin quiebres. <i>"¿Qué estamos priorizando: construir para durar?"</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sección 3: Transformación Tecnológica -->
+        <section id="tecnologia" class="scroll-mt-12">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-2">
+                <div class="icon-box bg-brand-100 text-brand-600">
+                    <i class="ph-fill ph-cpu"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-800">3. Transformación Digital: Ecosistema Cloud</h3>
+            </div>
+            <div class="glass-card rounded-2xl p-8 border-slate-200">
+                <p class="text-slate-600 mb-8 font-medium">El negocio hereda una dependencia crítica de Excel. Para el volumen masivo de "Cuota Cero", el entorno Excel es un <b>cuello de botella sistémico</b> susceptible al error humano absoluto. La estrategia consiste en migrar hacia la suite de <b>Google Cloud & Workspace</b>.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="p-6 bg-slate-50 border rounded-xl hover:border-brand-500 transition-colors">
+                        <h5 class="font-bold mb-3 flex items-center gap-2 text-brand-900">
+                            <i class="ph ph-note-pencil text-xl"></i> Captura Estandarizada
+                        </h5>
+                        <p class="text-xs text-slate-500 mb-4 font-semibold uppercase tracking-widest">Google Forms / AppSheet</p>
+                        <p class="text-sm text-slate-500 italic">Sustitución de llenado manual. Estructura la captura de información de ventas, inventario y nuevos créditos desde el terreno.</p>
+                    </div>
+                    <div class="p-6 bg-slate-50 border rounded-xl hover:border-brand-500 transition-colors">
+                        <h5 class="font-bold mb-3 flex items-center gap-2 text-brand-900">
+                            <i class="ph ph-chart-line-up text-xl"></i> Inteligencia de Negocio
+                        </h5>
+                        <p class="text-xs text-slate-500 mb-4 font-semibold uppercase tracking-widest">Looker Studio</p>
+                        <p class="text-sm text-slate-500 italic">Conexión dinámica de datos para reportes en tiempo real. Visualización inmediata de morosidad, inventario desplazado y caja.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-white border border-slate-100 rounded-xl">
+                        <i class="ph ph-database text-brand-500 text-3xl mb-3"></i>
+                        <h5 class="font-bold text-sm mb-2 uppercase">Data Warehouse</h5>
+                        <p class="text-xs text-slate-500">Google BigQuery: Almacenamiento profundo que permite cruzar variables masivas sin colapso del sistema.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-100 rounded-xl">
+                        <i class="ph ph-lock-key text-brand-500 text-3xl mb-3"></i>
+                        <h5 class="font-bold text-sm mb-2 uppercase">Interoperabilidad</h5>
+                        <p class="text-xs text-slate-500">Configuración de protocolos de seguridad y acceso segmentado para proteger la data de los usuarios.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-100 rounded-xl">
+                        <i class="ph ph-sparkle text-brand-500 text-3xl mb-3"></i>
+                        <h5 class="font-bold text-sm mb-2 uppercase">IA-Assisted (Opción A)</h5>
+                        <p class="text-xs text-slate-500">Desarrollo de mini-apps a medida vía IA para capacitar al personal actual sin curvas traumáticas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sección 4: Gestión Operativa, Liderazgo e IP -->
+        <section id="operativa" class="scroll-mt-12">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-2">
+                <div class="icon-box bg-slate-100 text-slate-700">
+                    <i class="ph-fill ph-users-three"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-800">4. Gestión Operativa y Liderazgo</h3>
+            </div>
+            
+            <div class="flex flex-col gap-10">
+                <!-- Row 1: El Rol Puente -->
+                <div class="glass-card p-6 md:p-8 rounded-2xl shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-xl mb-4 border-b pb-2 flex items-center gap-2">
+                        <i class="ph ph-user-gear text-brand-500"></i> El Rol "Puente" Estratégico
+                    </h4>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Designación de un rol híbrido gestor que actúe en la intersección de tres perfiles para absorber la complejidad directiva y traducir variables operativas en indicadores ejecutivos.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                            <i class="ph ph-briefcase text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-slate-900 text-sm">TPM (Technical Product Manager)</strong>
+                                <span class="text-xs text-slate-500">Diseña la arquitectura robusta, define requerimientos y prioriza la viabilidad.</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                            <i class="ph ph-desktop text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-slate-900 text-sm">Asistente Administrativo Informático</strong>
+                                <span class="text-xs text-slate-500">Auditoría de procesos actuales y mapeo de fricciones diarias de la operación.</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                            <i class="ph ph-brain text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <strong class="block text-slate-900 text-sm">Industria del Conocimiento</strong>
+                                <span class="text-xs text-slate-500">Inyecta tecnología avanzada (IA, No-code) para acelerar el trabajo operativo.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Marco de Liderazgo -->
+                <div class="glass-card p-6 md:p-8 rounded-2xl shadow-sm border-l-8 border-brand-500">
+                    <h4 class="font-bold text-slate-800 text-xl mb-4 flex items-center gap-2">
+                        <i class="ph ph-crown text-brand-500"></i> Marco de Liderazgo (6 Cualidades)
+                    </h4>
+                    <p class="text-xs text-slate-400 mb-6 italic">Criterios de evaluación para líderes y gestores del proyecto basados en dos ejes fundamentales.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 bg-slate-100 py-1 px-3 inline-block rounded">Eje de Tareas (Ejecución)</h5>
+                            <ul class="space-y-4">
+                                <li class="flex gap-3">
+                                    <span class="text-brand-500 font-black">01</span>
+                                    <div>
+                                        <strong class="text-sm block text-slate-900">Hacer que las cosas pasen</strong>
+                                        <p class="text-xs text-slate-500 leading-tight">Orientación total a la acción y finalización. Enfoque "get things done".</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-brand-500 font-black">02</span>
+                                    <div>
+                                        <strong class="text-sm block text-slate-900">Perseverar y Enfocarse</strong>
+                                        <p class="text-xs text-slate-500 leading-tight">Mantener la visión y el foco comercial a pesar de bloqueos técnicos o retrasos.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-brand-500 font-black">03</span>
+                                    <div>
+                                        <strong class="text-sm block text-slate-900">Absorber la Incertidumbre</strong>
+                                        <p class="text-xs text-slate-500 leading-tight">Actuar como un escudo para el equipo operativo, tomando decisiones en escenarios ambiguos.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 bg-green-50 py-1 px-3 inline-block rounded">Eje de Personas (Gestión Humana)</h5>
+                            <ul class="space-y-4">
+                                <li class="flex gap-3">
+                                    <span class="text-green-500 font-black">04</span>
+                                    <div>
+                                        <strong class="text-sm block text-slate-900">Colaborar Efectivamente</strong>
+                                        <p class="text-xs text-slate-500 leading-tight">Romper activamente los silos entre directiva, ventas y administración contable.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-green-500 font-black">05</span>
+                                    <div>
+                                        <strong class="text-sm block text-slate-900">Desarrollar al Equipo</strong>
+                                        <p class="text-xs text-slate-500 leading-tight">Inversión real de tiempo en capacitar al personal actual para elevar su nivel técnico.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-green-500 font-black">06</span>
+                                    <div>
+                                        <strong class="text-sm block text-slate-900">Inspirar Compromiso</strong>
+                                        <p class="text-xs text-slate-500 leading-tight">Conectar el trabajo rutinario con el impacto global y el éxito futuro de la empresa.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Propiedad Intelectual -->
+                <div class="p-6 md:p-8 border border-slate-200 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row gap-8 items-center">
+                    <div class="icon-box bg-slate-900 text-brand-500 flex-shrink-0">
+                        <i class="ph-fill ph-notebook"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-slate-800 text-xl mb-4">Gestión de la Propiedad Intelectual (IP)</h4>
+                        <p class="text-sm text-slate-600 mb-4">Todo proceso creado (desde el llenado del Form hasta la aprobación) debe ser tratado como IP del negocio. El conocimiento no reside en el individuo, sino en el **sistema documentado**.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-slate-500"><i class="ph ph-users-four"></i> Onboarding Acelerado</span>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-slate-500"><i class="ph ph-graduation-cap"></i> Re-especialización</span>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-slate-500"><i class="ph ph-shield-check"></i> Protección vs Rotación</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 4: Equipos de Alto Rendimiento -->
+                <div class="bg-slate-900 text-white p-6 md:p-8 rounded-2xl shadow-xl">
+                    <h4 class="font-bold text-white text-xl mb-6 flex items-center gap-2">
+                        <i class="ph ph-users-four text-brand-400"></i> Equipos de Alto Rendimiento (5 Dimensiones)
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-slate-800 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                            <i class="ph ph-heart text-brand-400 text-3xl shrink-0"></i>
+                            <div>
+                                <strong class="text-sm block italic">Seguridad Psicológica</strong>
+                                <p class="text-xs text-slate-400">El equipo debe sentirse seguro de reportar errores (ej. "me equivoqué en el Excel") sin miedo, para corregir a tiempo.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-slate-800 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                            <i class="ph ph-handshake text-brand-400 text-3xl shrink-0"></i>
+                             <div>
+                                <strong class="text-sm block italic">Seriedad y Confianza </strong>
+                                <p class="text-xs text-slate-400">Cumplimiento estricto de los compromisos. Si se promete un dashboard para el viernes, está listo el viernes.</p>
+                             </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-slate-800 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                            <i class="ph ph-layout text-brand-400 text-3xl shrink-0"></i>
+                            <div>
+                                <strong class="text-sm block italic">Estructura y Claridad</strong>
+                                <p class="text-xs text-slate-400">Cada miembro sabe exactamente qué se espera de él y bajo qué métricas se mide su éxito (Éxito vs Control).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-slate-800 rounded-xl border border-slate-700 hover:border-brand-500 transition-colors">
+                            <i class="ph ph-star text-brand-400 text-3xl shrink-0"></i>
+                            <div>
+                                <strong class="text-sm block italic">Significado e Impacto</strong>
+                                <p class="text-xs text-slate-400">El trabajo tiene importancia personal y se ve reflejado en prevenir el colapso operativo y generar ganancias reales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Sección 5: Marcos Metodológicos y Discernimiento -->
+        <section id="metodologias" class="scroll-mt-12">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-2">
+                <div class="icon-box bg-brand-100 text-brand-600">
+                    <i class="ph-fill ph-intersect"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-800">5. Marcos Metodológicos: La Caja de Herramientas</h3>
+            </div>
+
+            <div class="space-y-10">
+                <!-- Criterio de Discernimiento -->
+                <div class="p-6 bg-brand-50 border border-brand-100 rounded-2xl">
+                    <h4 class="font-bold text-brand-900 mb-4 flex items-center gap-2">
+                        <i class="ph ph-shield-check"></i> Lógica de Discernimiento Diario
+                    </h4>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">No se aplica una sola metodología a todo el proyecto. El gestor debe discernir qué herramienta usar según el problema:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                         <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-100">
+                             <strong class="text-xs text-brand-600 block mb-1 uppercase tracking-wider">¿El problema es de Adaptación?</strong>
+                             <p class="text-xs text-slate-500">Usa <b>Agile/Scrum</b>. Prioriza la velocidad y el feedback del cliente sobre el proceso perfecto.</p>
+                         </div>
+                         <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-100">
+                             <strong class="text-xs text-green-600 block mb-1 uppercase tracking-wider">¿El problema es de Calidad o Fraude?</strong>
+                             <p class="text-xs text-slate-500">Usa <b>Six Sigma</b>. Prioriza el control estadístico, la auditoría y la reducción de variabilidad.</p>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Agile Detail -->
+                    <div class="flex flex-col h-full glass-card border-t-8 border-blue-500 rounded-xl p-6">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="ph ph-rocket-launch text-blue-500 text-2xl"></i>
+                            <h4 class="font-bold text-slate-800 uppercase text-xs tracking-widest">Agile & Scrum</h4>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mb-4 italic leading-tight">"Iterar hasta encontrar la solución que el cliente realmente usa."</p>
+                        <div class="space-y-3 flex-1">
+                            <div>
+                                <strong class="text-[10px] text-slate-400 uppercase font-bold">Ceremonias</strong>
+                                <ul class="text-[11px] text-slate-600 mt-1">
+                                    <li><b>Daily:</b> ¿Qué hice? ¿Qué haré? ¿Qué me frena?</li>
+                                    <li><b>Sprint:</b> Plan de 1-2 semanas con meta clara.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-[10px] text-slate-400 uppercase font-bold">Puntos Clave</strong>
+                                <ul class="text-[11px] text-slate-600 mt-1">
+                                    <li>- Individuos sobre procesos.</li>
+                                    <li>- Respuesta ante el cambio sobre seguir un plan.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lean Detail -->
+                    <div class="flex flex-col h-full glass-card border-t-8 border-amber-500 rounded-xl p-6">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="ph ph-flow-arrow text-amber-500 text-2xl"></i>
+                            <h4 class="font-bold text-slate-800 uppercase text-xs tracking-widest">Lean Operations</h4>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mb-4 italic leading-tight">"Eliminar el Muda (Desperdicio) para maximizar valor."</p>
+                        <div class="space-y-3 flex-1">
+                            <div>
+                                <strong class="text-[10px] text-slate-400 uppercase font-bold">Muda a Eliminar</strong>
+                                <ul class="text-[11px] text-slate-600 mt-1">
+                                    <li><b>Doble Digitaci&oacute;n:</b> Meter datos en Excel y luego en otro sistema.</li>
+                                    <li><b>Sobre-procesamiento:</b> Pasos manuales innecesarios.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-[10px] text-slate-400 uppercase font-bold">Lean Canvas</strong>
+                                <ul class="text-[11px] text-slate-600 mt-1">
+                                    <li><b>Unfair Advantage:</b> Alianza directa con China.</li>
+                                    <li><b>Segmento:</b> Clientes minoristas de ticket bajo.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Six Sigma Detail -->
+                    <div class="flex flex-col h-full glass-card border-t-8 border-red-500 rounded-xl p-6">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="ph ph-atom text-red-500 text-2xl"></i>
+                            <h4 class="font-bold text-slate-800 uppercase text-xs tracking-widest">Six Sigma (Control)</h4>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mb-4 italic leading-tight">"La data es la única fuente de verdad para la toma de decisiones."</p>
+                        <div class="space-y-3 flex-1">
+                            <div>
+                                <strong class="text-[10px] text-slate-400 uppercase font-bold">Ciclo DMAIC</strong>
+                                <ul class="text-[11px] text-slate-600 mt-1">
+                                    <li><b>D/M:</b> Definir errores en Excel actual y Medirlos.</li>
+                                    <li><b>A/I:</b> Analizar causas e Implementar el Form/Cloud.</li>
+                                    <li><b>Control:</b> Dashboards de morosidad en tiempo real.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-[10px] text-slate-400 uppercase font-bold">Aplicación</strong>
+                                <p class="text-[11px] text-slate-600">Gestión de riesgos financieros y validación de seguridad de datos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sección 6: Hoja de Ruta (Roadmap y Plan de Acción) -->
+        <section id="roadmap" class="scroll-mt-12 mb-24">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-2">
+                <div class="icon-box bg-slate-100 text-slate-700">
+                    <i class="ph-fill ph-map-trifold"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-800">6. Hoja de Ruta y Plan de Acción</h3>
+            </div>
+            
+            <div class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
+                
+                <!-- Fase 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-200 text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <span class="text-xs font-bold">01</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 glass-card rounded-xl shadow-sm border border-slate-200">
+                        <h5 class="font-bold text-slate-800 border-b mb-3 pb-1">Fase 1: Diagnóstico y Design Thinking</h5>
+                        <ul class="text-[11px] text-slate-500 space-y-2">
+                            <li class="flex gap-2"><b>Acción:</b> Mapear Customer Journey e identificar cuellos de botella en la aprobación manual.</li>
+                            <li class="flex gap-2"><b>Empatía:</b> Entender frustraciones del encargado de inventario y facturación (¿dónde pierde tiempo?).</li>
+                            <li class="flex gap-2"><b>Definición:</b> Definir la brecha operativa hacia el "To-Be" automatizado.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Fase 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-200 text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <span class="text-xs font-bold">02</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 glass-card rounded-xl shadow-sm border border-slate-200">
+                        <h5 class="font-bold text-slate-800 border-b mb-3 pb-1">Fase 2: Arquitectura Técnica y Seguridad</h5>
+                        <ul class="text-[11px] text-slate-500 space-y-2">
+                            <li class="flex gap-2"><b>Conexión:</b> Evaluar APIs con el ecosistema de créditos y métodos de integración sin interrupción.</li>
+                            <li class="flex gap-2"><b>Flujo:</b> Inventario (Anaco) <i class="ph ph-arrows-left-right text-brand-500"></i> Sistema de Créditos <i class="ph ph-arrows-left-right text-brand-500"></i> PDV / E-commerce.</li>
+                            <li class="flex gap-2"><b>Seguridad:</b> Protocolos de protección de datos de usuarios y estados de cuenta.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Fase 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-brand-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <span class="text-xs font-bold">03</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 glass-card rounded-xl shadow-sm border-brand-200 bg-brand-50/30">
+                        <h5 class="font-bold text-brand-900 border-b border-brand-200 mb-3 pb-1 uppercase tracking-wider text-xs">Fase 3: MVP (Enfoque ÉXITO)</h5>
+                        <ul class="text-[11px] text-brand-700 space-y-2">
+                            <li class="flex gap-2"><b>Piloto:</b> Lanzar con grupo selecto de productos de ticket bajo y clientes controlados.</li>
+                            <li class="flex gap-2"><b>Feedback:</b> Prototipos de interfaces simples (ej. registrar crédito en 3 clics vía GForms).</li>
+                            <li class="flex gap-2"><b>Meta:</b> Validar la adopción técnica y el retorno de las primeras cuotas.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Fase 4 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-200 text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <span class="text-xs font-bold">04</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 glass-card rounded-xl shadow-sm border-slate-200">
+                        <h5 class="font-bold text-slate-800 border-b mb-3 pb-1 uppercase tracking-wider text-xs">Fase 4: Escalamiento (Enfoque CONTROL)</h5>
+                        <ul class="text-[11px] text-slate-500 space-y-2">
+                            <li class="flex gap-2"><b>Refactorización:</b> Optimizar código y automatizar conciliaciones bancarias totales.</li>
+                            <li class="flex gap-2"><b>Analítica:</b> Aplicar modelos de predicción de morosidad avanzada (Six Sigma).</li>
+                            <li class="flex gap-2"><b>Expansión:</b> Integración completa del catálogo a la modalidad "Cuota Cero".</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Próximos Pasos -->
+            <div class="mt-20 p-8 bg-brand-900 rounded-2xl text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-white opacity-5 rounded-full"></div>
+                <h4 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="ph ph-hand-pointing"></i> Próximos Pasos Inmediatos</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="flex gap-3 items-start">
+                        <span class="bg-brand-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">1</span>
+                        <p class="text-xs text-brand-100">Agendar reunión de <b>Kick-off</b> con stakeholders clave para definir límites legales de la fase inicial.</p>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="bg-brand-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">2</span>
+                        <p class="text-xs text-brand-100">Realizar el <b>Diagnóstico Técnico</b> del Excel actual (tamaño, estructura, errores raíz).</p>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <span class="bg-brand-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">3</span>
+                        <p class="text-xs text-brand-100">Crear el primer flujo automatizado <b>(MVP Técnico)</b> para un producto piloto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-200 pt-8 pb-12 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+            <p>&copy; 2026 Ventas Anaco. Todos los derechos reservados.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-mono">v1.0-MATRIZ</span>
+                <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-mono">PROPIEDAD-INTELECTUAL</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Scroll Active Navigation Script -->
+    <script>
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("bg-brand-50", "text-brand-700");
+                link.classList.add("text-slate-700");
+                if (link.getAttribute("href").includes(current) && current !== "") {
+                    link.classList.remove("text-slate-700");
+                    link.classList.add("bg-brand-50", "text-brand-700");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

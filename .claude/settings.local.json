@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma__get_design_context",
+      "Bash(mkdir:*)",
+      "Bash(.venv/bin/pip:*)",
+      "WebSearch",
+      "mcp__puppeteer__puppeteer_navigate",
+      "Bash(npx puppeteer:*)",
+      "Bash(sudo apt-get:*)"
+    ]
+  }
+}

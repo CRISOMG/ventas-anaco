@@ -1,0 +1,6 @@
+# Dependencias para el scraping de Instagram y descarga de imágenes
+instaloader==4.15
+browser-cookie3==0.20.1
+requests==2.32.5
+pycryptodomex==3.23.0
+lz4==4.4.5
